@@ -1,10 +1,5 @@
 # Advanced react
 
-## branches sequence
-
-- start
-- higher-order-components
-
 ## Higher-order copmonents
 
 We can have HOC components to store a common functionality and then we can wrap other components into these HOC components.
