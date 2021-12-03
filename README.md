@@ -118,13 +118,51 @@ function Counter(props) {
   useDocumentTitle(`${name} clicked ${count} times.`);
 ```
 
+### Fetching data with hooks
+
+Example: Fetching user data from jsonplaceholder public api, using axios library. 
+
+- useEffect - to fetch data
+- useState - to define users state property and setUsers function to update the state.
 
 ```javascript
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
+function Users(props) {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    async function getUsers() {
+      const result = await axios("https://jsonplaceholder.typicode.com/users");
+      setUsers(result.data);
+    }
+    getUsers();
+  });
+
+  return (
+    <div>
+      {users.map((u) => (
+        <li key={u.id}>{u.name}</li>
+      ))}
+    </div>
+  );
+}
+
+export default Users;
 ```
 
-```javascript
+Explanation of the useEffect body: 
 
+We cannot pass an async function to useEffect directly. Solution: Inside the useEffect arrow function we create another function which is async and then we call it without the await keyword:
+```javascript
+useEffect(() => {
+  async function getUsers() {
+    const result = await axios("https://jsonplaceholder.typicode.com/users");
+    setUsers(result.data);
+  }
+  getUsers();
+});
 ```
 
 ```javascript
