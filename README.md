@@ -158,3 +158,5 @@ useEffect(() => {
   getUsers();
 });
 ```
+
+We call getUsers(), the enpoint will be called asynchronously, when the result is ready the control will move to setUsers(). This will cause the component to rerender.
