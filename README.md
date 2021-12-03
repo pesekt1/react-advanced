@@ -88,13 +88,36 @@ useEffect(() => { //ComponentDidMount + ComponentDidUpdate
 ```
 
 ### Custom hooks
-```javascript
 
+We can extract any hook to a separate module and reuse the functionality.
+
+Example for useEffect: extract setting document title to useDocumentTitle.js:
+
+```javascript
+import { useEffect } from "react";
+
+export default function useDocumentTitle(title) {
+  useEffect(() => {
+    //ComponentDidUpdate + ComponentDidMount
+    document.title = title;
+
+    return () => {
+      //ComponentWillUnmount
+      console.log("cleanup");
+    };
+  });
+}
 ```
 
+Now import it and use it in the counter component:
 ```javascript
+import useDocumentTitle from "./useDocumentTitle";
 
+function Counter(props) {
+  ...
+  useDocumentTitle(`${name} clicked ${count} times.`);
 ```
+
 
 ```javascript
 

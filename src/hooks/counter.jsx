@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import useDocumentTitle from "./useDocumentTitle";
 
 function Counter(props) {
   // const array = useState(0); // returns an array with a state property and setState function for that property
@@ -6,16 +7,7 @@ function Counter(props) {
   // const setCount = array[1]; //like this.setState()
   const [count, setCount] = useState(0); //array destructuring - initiate a state property count and set it to 0.
   const [name, setName] = useState("");
-
-  //ComponentDidMount
-  //ComponentDidUpdate
-  useEffect(() => {
-    document.title = `${name} clicked ${count} times.`;
-    //ComponentWillUnmount
-    return () => {
-      console.log("cleanup");
-    };
-  }, [count, name]); //array of dependencies on which useEffect is applied
+  useDocumentTitle(`${name} clicked ${count} times.`);
 
   return (
     <React.Fragment>
