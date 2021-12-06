@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import MovieRow from "./MovieRow";
 import UserContext from "./userContext";
 
 class MovieList extends Component {
@@ -10,9 +11,12 @@ class MovieList extends Component {
 
   render() {
     return (
-      <UserContext.Consumer>
-        {(currentUser) => <div>MovieList for user: {currentUser.name}</div>}
-      </UserContext.Consumer>
+      <React.Fragment>
+        <UserContext.Consumer>
+          {(currentUser) => <div>MovieList for user: {currentUser.name}</div>}
+        </UserContext.Consumer>
+        <MovieRow />
+      </React.Fragment>
     );
   }
 }
