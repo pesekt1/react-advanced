@@ -1,13 +1,5 @@
 # Advanced react
 
-## branches sequence
-
-- start
-- higher-order-components
-- hooks
-- context-class-components
-- context-functional-components
-
 ## Context-functional-components
 
 Functional components use context in much easier way.
@@ -37,20 +29,4 @@ class MovieList extends Component {
   render() {
     return (<MovieRow />);
   }
-```
-
-```javascript
-
-```
-
-```javascript
-
-```
-
-```javascript
-
-```
-
-```javascript
-
 ```
