@@ -1,12 +1,5 @@
 # Advanced react
 
-## branches sequence
-
-- start
-- higher-order-components
-- hooks
-- context
-
 ## Context-class-components
 
 To avoid props drilling we can use a context: https://reactjs.org/docs/context.html
@@ -113,28 +106,4 @@ Another option how to set the contextType is this:
 class MovieList extends Component {...}
 MovieList.contextType = UserContext;
 export default MovieList;
-```
-
-```javascript
-
-```
-
-```javascript
-
-```
-
-```javascript
-
-```
-
-```javascript
-
-```
-
-```javascript
-
-```
-
-```javascript
-
 ```
