@@ -1,17 +1,9 @@
 # Advanced react
 
-## branches sequence
-
-- start
-- higher-order-components
-- hooks
-- context-class-components
-- context-functional-components
-
 ## Updating the Context
 
 Login and Logout components in App.js: Login component will show if currentUser is not defined, Logout will show if the currentUser is defined:
- 
+
 ```javascript
 import Login from "./context/Login";
 import Logout from "./context/Logout";
@@ -67,19 +59,3 @@ export default Login;
 ```
 
 Logout is the same - it will trigger the handleLogOut in App component.
-
-```javascript
-
-```
-
-```javascript
-
-```
-
-```javascript
-
-```
-
-```javascript
-
-```
