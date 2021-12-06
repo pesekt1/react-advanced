@@ -5,9 +5,21 @@ import Counter from "./hooks/counter";
 import Users from "./hooks/users";
 import MoviePage from "./context/MoviePage";
 import UserContext from "./context/userContext";
+import Login from "./context/Login";
+import Logout from "./context/Logout";
 
 class App extends React.Component {
-  state = { currentUser: { name: "Tomas" } };
+  state = { currentUser: null };
+
+  handleLogIn = (username) => {
+    console.log("Getting user: " + username);
+    const user = { name: "Tomas" }; //simulating calling the server
+    this.setState({ currentUser: user });
+  };
+
+  handleLogOut = () => {
+    this.setState({ currentUser: null });
+  };
 
   render() {
     return (
@@ -18,8 +30,16 @@ class App extends React.Component {
         <div>-------------------------------------------</div>
         <Users />
         <div>-------------------------------------------</div>
-        <UserContext.Provider value={this.state.currentUser}>
+        <UserContext.Provider
+          value={{
+            currentUser: this.state.currentUser,
+            onLogIn: this.handleLogIn,
+            onLogout: this.handleLogOut,
+          }}
+        >
           <MoviePage />
+          {!this.state.currentUser && <Login />}
+          {this.state.currentUser && <Logout />}
         </UserContext.Provider>
       </div>
     );

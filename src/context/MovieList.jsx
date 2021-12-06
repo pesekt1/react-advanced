@@ -13,7 +13,12 @@ class MovieList extends Component {
     return (
       <React.Fragment>
         <UserContext.Consumer>
-          {(currentUser) => <div>MovieList for user: {currentUser.name}</div>}
+          {(context) => (
+            <div>
+              Movie List for user:{" "}
+              {context.currentUser ? context.currentUser.name : ""}
+            </div>
+          )}
         </UserContext.Consumer>
         <MovieRow />
       </React.Fragment>
